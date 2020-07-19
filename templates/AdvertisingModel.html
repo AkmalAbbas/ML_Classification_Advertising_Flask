@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Advertising Machine Learning Model {% endblock %}
+{% block content %}
+<h2 style = "text-align: center;">Advertising Input Form</h2>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for msg in messages %}
+      <p>{{msg}}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith%}
+
+<form action = "{{url_for('c_model_advertising')}}" method = post>
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+      {{ form.time_spend.label }}<br>
+      {{ form.time_spend(class_="form-control") }}
+      <br>
+      {{ form.age.label }}<br>
+      {{ form.age(class_="form-control") }}
+      <br>
+      {{ form.area_income.label }}<br>
+      {{ form.area_income(class_="form-control") }}
+      <br>
+      {{ form.internet_usage.label }}<br>
+      {{ form.internet_usage(class_="form-control") }}
+      <br>
+      {{ form.gender.label }}<br>
+      {{ form.gender(class_="form-control") }}
+      <br>
+      {{ form.submit }}
+  </div>
+  <br>
+  {{result}}
+</form>
+{% endblock %}
